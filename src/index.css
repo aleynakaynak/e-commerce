@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+/* Figma'daki renkler ve font */
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+  --color-primary: #23a6f0;
+  --color-dark: #252b42;
+  --color-second: #737373;
+  --color-muted: #bdbdbd;
+  --color-success: #2dc071;
+  --color-green-dark: #23856d;
+  --color-danger: #e74040;
+  --color-light: #fafafa;
+}

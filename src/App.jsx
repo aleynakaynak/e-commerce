@@ -1,5 +1,15 @@
+import Header from './layout/Header'
+import PageContent from './layout/PageContent'
+import Footer from './layout/Footer'
+
 function App() {
-  return <h1 className="text-3xl font-bold text-blue-600 p-4">E-commerce projem</h1>
+  return (
+    <div className="font-montserrat flex flex-col min-h-screen">
+      <Header />
+      <PageContent />
+      <Footer />
+    </div>
+  )
 }
 
 export default App
