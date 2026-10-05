@@ -1,10 +1,41 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Phone, Mail, User, Search, ShoppingCart, Heart, Menu, ChevronDown } from 'lucide-react'
 import { InstagramIcon, YoutubeIcon, FacebookIcon, TwitterIcon } from '../components/SocialIcons'
+import CartDropdown from '../components/CartDropdown'
+import { fetchCategories, setOffset } from '../store/actions/productActions'
+import { logoutUser } from '../store/actions/clientActions'
+import { getCategoryPath, getGravatarUrl } from '../utils/helpers'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [shopOpen, setShopOpen] = useState(false)
+  const [avatar, setAvatar] = useState('')
+
+  const dispatch = useDispatch()
+  const categories = useSelector((state) => state.product.categories)
+  const user = useSelector((state) => state.client.user)
+
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [dispatch])
+
+  // kullanıcı giriş yapınca gravatar resmini al
+  useEffect(() => {
+    if (user.email) {
+      getGravatarUrl(user.email).then((url) => setAvatar(url))
+    }
+  }, [user.email])
+
+  // kategori seçilince menüyü kapat ve ilk sayfaya dön
+  const handleCategoryClick = () => {
+    setShopOpen(false)
+    dispatch(setOffset(0))
+  }
+
+  const womenCategories = categories.filter((c) => c.gender === 'k')
+  const menCategories = categories.filter((c) => c.gender === 'e')
 
   return (
     <header className="flex flex-col">
@@ -31,9 +62,9 @@ function Header() {
 
           {/* mobil ikonlar */}
           <div className="flex items-center gap-5 text-dark lg:hidden">
-            <User size={22} />
+            <Link to="/login"><User size={22} /></Link>
             <Search size={22} />
-            <ShoppingCart size={22} />
+            <Link to="/cart"><ShoppingCart size={22} /></Link>
             <button onClick={() => setMenuOpen(!menuOpen)}>
               <Menu size={24} />
             </button>
@@ -43,9 +74,32 @@ function Header() {
         {/* linkler: mobilde menü açılınca görünüyor */}
         <div className={`${menuOpen ? 'flex' : 'hidden'} lg:flex flex-col lg:flex-row items-center gap-8 lg:gap-4 text-3xl lg:text-sm text-second font-bold py-16 lg:py-0`}>
           <Link to="/">Home</Link>
-          <Link to="/shop" className="flex items-center gap-1 text-dark lg:font-medium">
-            Shop <ChevronDown size={16} className="hidden lg:block" />
-          </Link>
+
+          {/* shop + kategori dropdown */}
+          <div className="relative flex items-center gap-1">
+            <Link to="/shop" className="text-dark lg:font-medium">Shop</Link>
+            <button onClick={() => setShopOpen(!shopOpen)} className="hidden lg:block">
+              <ChevronDown size={16} />
+            </button>
+
+            {shopOpen && (
+              <div className="absolute top-8 left-0 z-20 hidden lg:flex gap-12 bg-white shadow-lg rounded p-6">
+                <div className="flex flex-col gap-3">
+                  <h6 className="text-dark">Kadın</h6>
+                  {womenCategories.map((c) => (
+                    <Link key={c.id} to={getCategoryPath(c)} onClick={handleCategoryClick}>{c.title}</Link>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-3">
+                  <h6 className="text-dark">Erkek</h6>
+                  {menCategories.map((c) => (
+                    <Link key={c.id} to={getCategoryPath(c)} onClick={handleCategoryClick}>{c.title}</Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
           <Link to="/about">About</Link>
           <Link to="/blog" className="hidden lg:block">Blog</Link>
           <Link to="/contact">Contact</Link>
@@ -54,11 +108,20 @@ function Header() {
 
         {/* masaüstü sağ taraf */}
         <div className="hidden lg:flex items-center gap-6 ml-auto text-primary text-sm font-bold">
-          <Link to="/login" className="flex items-center gap-1">
-            <User size={16} /> Login / Register
-          </Link>
+          {user.email ? (
+            <div className="flex items-center gap-2">
+              {avatar && <img src={avatar} alt="" className="w-8 h-8 rounded-full" />}
+              <span>{user.name}</span>
+              <button onClick={() => dispatch(logoutUser())} className="text-second font-normal">Çıkış</button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-1">
+              <User size={16} />
+              <Link to="/login">Login</Link> / <Link to="/signup">Register</Link>
+            </div>
+          )}
           <Search size={18} />
-          <span className="flex items-center gap-1"><ShoppingCart size={18} /> 1</span>
+          <CartDropdown />
           <span className="flex items-center gap-1"><Heart size={18} /> 1</span>
         </div>
       </nav>
