@@ -4,6 +4,8 @@ export const setUser = (user) => ({ type: 'SET_USER', payload: user })
 export const setRoles = (roles) => ({ type: 'SET_ROLES', payload: roles })
 export const setTheme = (theme) => ({ type: 'SET_THEME', payload: theme })
 export const setLanguage = (language) => ({ type: 'SET_LANGUAGE', payload: language })
+export const setAddressList = (list) => ({ type: 'SET_ADDRESS_LIST', payload: list })
+export const setCreditCards = (cards) => ({ type: 'SET_CREDIT_CARDS', payload: cards })
 
 // roller sadece store'da yoksa çekiliyor
 export const fetchRoles = () => (dispatch, getState) => {
@@ -43,11 +45,30 @@ export const verifyToken = () => (dispatch) => {
     .catch(() => {
       localStorage.removeItem('token')
       setAuthToken(null)
+      dispatch(setUser({}))
     })
+}
+
+// kayıtlı adresler
+export const fetchAddresses = () => (dispatch) => {
+  api
+    .get('/user/address')
+    .then((res) => dispatch(setAddressList(res.data)))
+    .catch((err) => console.log(err))
+}
+
+// kayıtlı kartlar
+export const fetchCards = () => (dispatch) => {
+  api
+    .get('/user/card')
+    .then((res) => dispatch(setCreditCards(res.data)))
+    .catch((err) => console.log(err))
 }
 
 export const logoutUser = () => (dispatch) => {
   localStorage.removeItem('token')
   setAuthToken(null)
   dispatch(setUser({}))
+  dispatch(setAddressList([]))
+  dispatch(setCreditCards([]))
 }

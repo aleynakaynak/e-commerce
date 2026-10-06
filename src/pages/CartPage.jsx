@@ -1,22 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Trash2, Minus, Plus } from 'lucide-react'
+import OrderSummary from '../components/OrderSummary'
 import { changeCount, removeFromCart, toggleChecked } from '../store/actions/shoppingCartActions'
-
-const SHIPPING = 29.99
 
 function CartPage() {
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.shoppingCart.cart)
-
-  // sadece seçili ürünler toplama dahil
-  const productsTotal = cart
-    .filter((item) => item.checked)
-    .reduce((sum, item) => sum + item.count * item.product.price, 0)
-
-  // 150 TL üzeri kargo bedava (indirim olarak gösteriliyor)
-  const discount = productsTotal >= 150 ? SHIPPING : 0
-  const grandTotal = productsTotal > 0 ? productsTotal + SHIPPING - discount : 0
 
   if (cart.length === 0) {
     return (
@@ -65,30 +55,11 @@ function CartPage() {
         ))}
       </div>
 
-      {/* sipariş özeti */}
-      <div className="flex flex-col gap-4 lg:w-80">
-        <div className="flex flex-col gap-3 border border-gray-200 rounded p-5 text-sm">
-          <h4 className="text-xl font-bold text-dark">Sipariş Özeti</h4>
-          <div className="flex justify-between">
-            <span className="text-second">Ürünün Toplamı</span>
-            <span className="font-bold">{productsTotal.toFixed(2)} ₺</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-second">Kargo Toplam</span>
-            <span className="font-bold">{SHIPPING} ₺</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-second">150 ₺ ve Üzeri Kargo Bedava</span>
-            <span className="font-bold text-danger">-{discount.toFixed(2)} ₺</span>
-          </div>
-          <div className="flex justify-between border-t border-gray-200 pt-3">
-            <span className="font-bold">Toplam</span>
-            <span className="font-bold text-primary">{grandTotal.toFixed(2)} ₺</span>
-          </div>
-        </div>
-        {/* sipariş oluşturma sonraki task'te yapılacak */}
-        <button className="bg-primary text-white font-bold py-3 rounded">Sepeti Onayla</button>
-      </div>
+      <OrderSummary>
+        <Link to="/order" className="bg-primary text-white text-center font-bold py-3 rounded">
+          Sepeti Onayla
+        </Link>
+      </OrderSummary>
     </div>
   )
 }

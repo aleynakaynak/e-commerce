@@ -5,6 +5,12 @@ import ProductDetailPage from '../pages/ProductDetailPage'
 import SignupPage from '../pages/SignupPage'
 import LoginPage from '../pages/LoginPage'
 import CartPage from '../pages/CartPage'
+import OrderPage from '../pages/OrderPage'
+import OrdersPage from '../pages/OrdersPage'
+import ContactPage from '../pages/ContactPage'
+import TeamPage from '../pages/TeamPage'
+import AboutPage from '../pages/AboutPage'
+import ProtectedRoute from '../components/ProtectedRoute'
 
 // sayfalar ve route'lar burada tanımlanıyor
 function PageContent() {
@@ -32,6 +38,22 @@ function PageContent() {
         <Route path="/cart">
           <CartPage />
         </Route>
+        <Route path="/contact">
+          <ContactPage />
+        </Route>
+        <Route path="/team">
+          <TeamPage />
+        </Route>
+        <Route path="/about">
+          <AboutPage />
+        </Route>
+        {/* giriş gerektiren sayfalar */}
+        <ProtectedRoute path="/order">
+          <OrderPage />
+        </ProtectedRoute>
+        <ProtectedRoute path="/orders">
+          <OrdersPage />
+        </ProtectedRoute>
       </Switch>
     </main>
   )

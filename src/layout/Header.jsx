@@ -11,6 +11,7 @@ import { getCategoryPath, getGravatarUrl } from '../utils/helpers'
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [shopOpen, setShopOpen] = useState(false)
+  const [userOpen, setUserOpen] = useState(false)
   const [avatar, setAvatar] = useState('')
 
   const dispatch = useDispatch()
@@ -103,16 +104,23 @@ function Header() {
           <Link to="/about">About</Link>
           <Link to="/blog" className="hidden lg:block">Blog</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/pages" className="hidden lg:block">Pages</Link>
+          <Link to="/team">Team</Link>
         </div>
 
         {/* masaüstü sağ taraf */}
         <div className="hidden lg:flex items-center gap-6 ml-auto text-primary text-sm font-bold">
           {user.email ? (
-            <div className="flex items-center gap-2">
+            <div className="relative flex items-center gap-2">
               {avatar && <img src={avatar} alt="" className="w-8 h-8 rounded-full" />}
-              <span>{user.name}</span>
-              <button onClick={() => dispatch(logoutUser())} className="text-second font-normal">Çıkış</button>
+              <button onClick={() => setUserOpen(!userOpen)} className="flex items-center gap-1">
+                {user.name} <ChevronDown size={14} />
+              </button>
+              {userOpen && (
+                <div className="absolute top-10 right-0 z-20 flex flex-col gap-3 bg-white shadow-lg rounded p-4 w-40 text-second">
+                  <Link to="/orders" onClick={() => setUserOpen(false)}>Siparişlerim</Link>
+                  <button onClick={() => dispatch(logoutUser())} className="text-left">Çıkış</button>
+                </div>
+              )}
             </div>
           ) : (
             <div className="flex items-center gap-1">
