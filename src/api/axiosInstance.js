@@ -1,7 +1,8 @@
 import axios from 'axios'
 
+// .env.local içinde VITE_API_URL varsa kendi backend'imize, yoksa Workintech API'sine bağlanır
 const api = axios.create({
-  baseURL: 'https://workintech-fe-ecommerce.onrender.com',
+  baseURL: import.meta.env.VITE_API_URL || 'https://workintech-fe-ecommerce.onrender.com',
 })
 
 // token'ı header'a ekle / sil (Bearer yok, kartta öyle isteniyor)
