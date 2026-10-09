@@ -1,0 +1,424 @@
+{
+ "categories": [
+  {
+   "code": "k:tisort",
+   "title": "Tişört",
+   "gender": "k",
+   "rating": 4.2,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_kadın_tişört.jpg"
+  },
+  {
+   "code": "k:ayakkabi",
+   "title": "Ayakkabı",
+   "gender": "k",
+   "rating": 4.9,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_kadın_ayakkabı.jpg"
+  },
+  {
+   "code": "k:ceket",
+   "title": "Ceket",
+   "gender": "k",
+   "rating": 3.8,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_kadın_ceket.jpg"
+  },
+  {
+   "code": "k:elbise",
+   "title": "Elbise",
+   "gender": "k",
+   "rating": 4.1,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_kadın_elbise.jpg"
+  },
+  {
+   "code": "k:etek",
+   "title": "Etek",
+   "gender": "k",
+   "rating": 3.9,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_kadın_etek.jpg"
+  },
+  {
+   "code": "k:gomlek",
+   "title": "Gömlek",
+   "gender": "k",
+   "rating": 3.1,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_kadın_gömlek.jpg"
+  },
+  {
+   "code": "k:kazak",
+   "title": "Kazak",
+   "gender": "k",
+   "rating": 2.9,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_kadın_kazak.jpg"
+  },
+  {
+   "code": "k:pantalon",
+   "title": "Pantalon",
+   "gender": "k",
+   "rating": 3.8,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_kadın_pantalon.jpg"
+  },
+  {
+   "code": "e:ayakkabi",
+   "title": "Ayakkabı",
+   "gender": "e",
+   "rating": 4.6,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_erkek_ayakkabı.jpg"
+  },
+  {
+   "code": "e:ceket",
+   "title": "Ceket",
+   "gender": "e",
+   "rating": 4.1,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_erkek_ceket.jpg"
+  },
+  {
+   "code": "e:gomlek",
+   "title": "Gömlek",
+   "gender": "e",
+   "rating": 3.9,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_erkek_gömlek.jpg"
+  },
+  {
+   "code": "e:kazak",
+   "title": "Kazak",
+   "gender": "e",
+   "rating": 3.2,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_erkek_kazak.jpg"
+  },
+  {
+   "code": "e:pantalon",
+   "title": "Pantalon",
+   "gender": "e",
+   "rating": 3.5,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_erkek_pantalon.jpg"
+  },
+  {
+   "code": "e:tisort",
+   "title": "Tişört",
+   "gender": "e",
+   "rating": 4.3,
+   "img": "https://workintech-fe-ecommerce.onrender.com/assets/category-img/category_erkek_tişört.jpg"
+  }
+ ],
+ "products": [
+  {
+   "category_code": "k:tisort",
+   "name": "Unisex Bisiklet Yaka",
+   "description": "Unisex Bisiklet Yaka Pamuk Oversize Boyfriend T-Shirt",
+   "price": 82,
+   "stock": 110,
+   "rating": 4.99,
+   "sell_count": 214,
+   "image": "https://cdn.dsmcdn.com/ty787/product/media/images/20230319/1/307225608/890174198/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:tisort",
+   "name": "Unisex Love Yourself",
+   "description": "Unisex Love Yourself Baskılı T-shirt",
+   "price": 139.9,
+   "stock": 65,
+   "rating": 4.93,
+   "sell_count": 310,
+   "image": "https://cdn.dsmcdn.com/ty873/product/media/images/20230509/18/343716200/931999999/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:tisort",
+   "name": "Unisex Baskı Detaylı",
+   "description": "Unisex Baskı Detaylı Oversize Basit T-Shirt",
+   "price": 99,
+   "stock": 188,
+   "rating": 4.92,
+   "sell_count": 757,
+   "image": "https://cdn.dsmcdn.com/ty592/product/media/images/20221107/9/209028997/528943413/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:tisort",
+   "name": "Unisex Pamuk Bisiklet",
+   "description": "Unisex Pamuk Bisiklet Yaka Boyfriend Örme Oversize T-shirt",
+   "price": 139,
+   "stock": 116,
+   "rating": 4.89,
+   "sell_count": 578,
+   "image": "https://cdn.dsmcdn.com/ty971/product/media/images/20230724/8/396277465/981582051/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:tisort",
+   "name": "Unisex Balance Baskılı",
+   "description": "Unisex Balance Baskılı Oversize Boyfriend T-Shirt",
+   "price": 150,
+   "stock": 23,
+   "rating": 4.86,
+   "sell_count": 729,
+   "image": "https://cdn.dsmcdn.com/ty1011/product/media/images/prod/SPM/PIM/20231010/22/b955c19e-9474-31a0-94a6-60c3bb9640bb/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:tisort",
+   "name": "Unisex Destiny Rahat",
+   "description": "Unisex Destiny Rahat Kesim Oversize T-shirt Geyik Desenli",
+   "price": 79,
+   "stock": 85,
+   "rating": 4.82,
+   "sell_count": 776,
+   "image": "https://cdn.dsmcdn.com/ty780/product/media/images/20230316/23/305233126/888262781/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:tisort",
+   "name": "Minimal Kalp Baskılı",
+   "description": "Minimal Kalp Baskılı Beyaz Oversize Tshirt",
+   "price": 69,
+   "stock": 38,
+   "rating": 4.76,
+   "sell_count": 543,
+   "image": "https://cdn.dsmcdn.com/ty468/product/media/images/20220707/5/136455588/515844285/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:tisort",
+   "name": "Unisex Pamuk Siyah",
+   "description": "Unisex Pamuk Siyah Bisiklet Yaka Oversize Boyfriend T-shirt",
+   "price": 139,
+   "stock": 108,
+   "rating": 4.76,
+   "sell_count": 143,
+   "image": "https://cdn.dsmcdn.com/ty807/product/media/images/20230331/21/316480940/901765807/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ayakkabi",
+   "name": "Unisex Siyah Hafif",
+   "description": "Unisex Siyah Hafif Günlük Spor Yürüyüş Sneaker Ayakkabı",
+   "price": 359.9,
+   "stock": 175,
+   "rating": 4.94,
+   "sell_count": 76,
+   "image": "https://cdn.dsmcdn.com/ty605/product/media/images/20221118/15/217689042/626724828/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ayakkabi",
+   "name": "Kadın Siyah Zincir",
+   "description": "Kadın Siyah Zincir Tokalı Kalın Taban Pu Deri Günlük Klasik Topuklu Loafer Makosen Ayakkabı",
+   "price": 549.16,
+   "stock": 165,
+   "rating": 4.92,
+   "sell_count": 247,
+   "image": "https://cdn.dsmcdn.com/ty1018/product/media/images/prod/SPM/PIM/20231020/18/bcc85b38-8291-32dc-acc5-553895c96eab/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ayakkabi",
+   "name": "Hafif Günlük Unisex",
+   "description": "Hafif Günlük Unisex Spor Yürüyüş Sneaker Ayakkabı",
+   "price": 284.12,
+   "stock": 178,
+   "rating": 4.89,
+   "sell_count": 492,
+   "image": "https://cdn.dsmcdn.com/ty397/product/media/images/20220413/16/90315550/81482487/2/2_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ayakkabi",
+   "name": "Beyaz Kadın Sneaker",
+   "description": "Beyaz Kadın Sneaker 16278",
+   "price": 187.99,
+   "stock": 26,
+   "rating": 4.86,
+   "sell_count": 425,
+   "image": "https://cdn.dsmcdn.com/ty723/product/media/images/20230208/17/277596491/166159293/2/2_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ayakkabi",
+   "name": "Kadın Siyah Ayıcık",
+   "description": "Kadın Siyah Ayıcık Tokalı Kalın Tabanlı Loafer Ayakkabı",
+   "price": 439,
+   "stock": 62,
+   "rating": 4.84,
+   "sell_count": 486,
+   "image": "https://cdn.dsmcdn.com/ty951/product/media/images/20230616/16/386218146/969450196/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ayakkabi",
+   "name": "Kadın Kalın Taban",
+   "description": "Kadın Kalın Taban Loafer Makosen Ayakkabı Incili Siyah",
+   "price": 449.9,
+   "stock": 38,
+   "rating": 4.84,
+   "sell_count": 914,
+   "image": "https://cdn.dsmcdn.com/ty999/product/media/images/prod/SPM/PIM/20230914/22/4a353759-6717-3e44-9833-8ef5a2d15e07/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ayakkabi",
+   "name": "Kadın Günlük Spor",
+   "description": "Kadın Günlük Spor Ayakkabı",
+   "price": 474.9,
+   "stock": 146,
+   "rating": 4.81,
+   "sell_count": 637,
+   "image": "https://cdn.dsmcdn.com/ty1001/product/media/images/prod/SPM/PIM/20230914/19/57d2f399-c408-3801-8350-61025d4770db/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ayakkabi",
+   "name": "Kadın Beyaz Sneaker",
+   "description": "Kadın Beyaz Sneaker 15226",
+   "price": 254.49,
+   "stock": 77,
+   "rating": 4.6,
+   "sell_count": 634,
+   "image": "https://cdn.dsmcdn.com/ty999/product/media/images/prod/PIM/20230914/13/65369f59-668a-47dd-af54-00020089a45e/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ceket",
+   "name": "Fıstık Yeşil Regular",
+   "description": "Fıstık Yeşil Regular Astarlı Kruvaze Kapama Dokuma Blazer Ceket",
+   "price": 469.99,
+   "stock": 130,
+   "rating": 4.99,
+   "sell_count": 157,
+   "image": "https://cdn.dsmcdn.com/ty153/product/media/images/20210806/14/116297031/132380443/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ceket",
+   "name": "Unisex Oversize Ceket",
+   "description": "Unisex Oversize Ceket",
+   "price": 999,
+   "stock": 172,
+   "rating": 4.96,
+   "sell_count": 893,
+   "image": "https://cdn.dsmcdn.com/ty1012/product/media/images/prod/SPM/PIM/20231010/02/83f06827-cbd5-3484-a6c0-ebd9ec329dfd/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ceket",
+   "name": "Koyu Mavi Regular",
+   "description": "Koyu Mavi Regular Astar Detaylı Dokuma Blazer Ceket",
+   "price": 469.99,
+   "stock": 44,
+   "rating": 4.84,
+   "sell_count": 652,
+   "image": "https://cdn.dsmcdn.com/ty493/product/media/images/20220728/18/151515086/98142870/2/2_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ceket",
+   "name": "Kadın Turuncu Kol",
+   "description": "Kadın Turuncu Kol İçi Çizgili Tek Düğmeli Ceket",
+   "price": 229.95,
+   "stock": 158,
+   "rating": 4.8,
+   "sell_count": 971,
+   "image": "https://cdn.dsmcdn.com/ty1001/product/media/images/prod/SPM/PIM/20230913/10/6dbc9e1a-8c5f-3acc-b17f-fc342eb463b8/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ceket",
+   "name": "Gri Oversize Dokuma",
+   "description": "Gri Oversize Dokuma Ekose Blazer Ceket",
+   "price": 554.99,
+   "stock": 142,
+   "rating": 4.78,
+   "sell_count": 543,
+   "image": "https://cdn.dsmcdn.com/ty1001/product/media/images/prod/PIM/20230914/06/95a52e96-da13-4dc5-a86b-d9581052e164/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ceket",
+   "name": "Kadın Koyu Lacivert",
+   "description": "Kadın Koyu Lacivert Kol İçi Çizgili Tek Düğmeli Ceket",
+   "price": 229.95,
+   "stock": 177,
+   "rating": 4.78,
+   "sell_count": 598,
+   "image": "https://cdn.dsmcdn.com/ty732/product/media/images/20230217/11/282578430/670198998/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ceket",
+   "name": "Suni Deri Geniş",
+   "description": "Suni Deri Geniş Kollu Bomber Ceket",
+   "price": 609,
+   "stock": 137,
+   "rating": 4.76,
+   "sell_count": 731,
+   "image": "https://cdn.dsmcdn.com/ty967/product/media/images/20230718/13/394750794/935721287/2/2_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:ceket",
+   "name": "Yeşil Regular Astarlı",
+   "description": "Yeşil Regular Astarlı Dokuma Blazer Ceket",
+   "price": 492.99,
+   "stock": 32,
+   "rating": 4.73,
+   "sell_count": 1000,
+   "image": "https://cdn.dsmcdn.com/ty157/product/media/images/20210809/10/117038023/132380452/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:elbise",
+   "name": "Yeşil Kalp Yaka",
+   "description": "Yeşil Kalp Yaka Yırtmaçlı Triko Elbise",
+   "price": 399.9,
+   "stock": 17,
+   "rating": 4.98,
+   "sell_count": 925,
+   "image": "https://cdn.dsmcdn.com/ty519/product/media/images/20220902/17/168609192/243357391/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:elbise",
+   "name": "Kadın Kısa Kollu",
+   "description": "Kadın Kısa Kollu Kruvaze Yaka Eteği Volanlı Krep Elbise",
+   "price": 555.86,
+   "stock": 147,
+   "rating": 4.94,
+   "sell_count": 701,
+   "image": "https://cdn.dsmcdn.com/ty971/product/media/images/20230719/22/395127355/980173619/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:elbise",
+   "name": "Siyah Tek Omuz",
+   "description": "Siyah Tek Omuz Detaylı Elbise",
+   "price": 259,
+   "stock": 26,
+   "rating": 4.92,
+   "sell_count": 725,
+   "image": "https://cdn.dsmcdn.com/ty949/product/media/images/20230614/10/385443614/582378717/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:elbise",
+   "name": "Kadın Mavi Cepli",
+   "description": "Kadın Mavi Cepli 3/4 Kol Yıkanmış Pamuklu Kot Elbise",
+   "price": 459,
+   "stock": 60,
+   "rating": 4.91,
+   "sell_count": 34,
+   "image": "https://cdn.dsmcdn.com/ty954/product/media/images/20230623/14/388575344/972361849/1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:elbise",
+   "name": "Balıkçı Yaka Midi",
+   "description": "Balıkçı Yaka Midi Boy Fitilli Triko Kalem Elbise",
+   "price": 170,
+   "stock": 176,
+   "rating": 4.84,
+   "sell_count": 661,
+   "image": "https://cdn.dsmcdn.com/ty1015/product/media/images/prod/SPM/PIM/20231017/13/65bebdb5-704f-387f-a036-eeda7d0b54a1/1_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:elbise",
+   "name": "Kadın Siyah Ekoseli",
+   "description": "Kadın Siyah Ekoseli Kare Yaka Uzun Kol Elbise",
+   "price": 299.95,
+   "stock": 55,
+   "rating": 4.76,
+   "sell_count": 701,
+   "image": "https://cdn.dsmcdn.com/ty985/product/media/images/jpim-outputs/assets/product/media/images/20230817/14/404331522/941603056/2/2_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:elbise",
+   "name": "Kadın Beyaz Ekoseli",
+   "description": "Kadın Beyaz Ekoseli Kare Yaka Uzun Kol Elbise",
+   "price": 299.95,
+   "stock": 165,
+   "rating": 4.72,
+   "sell_count": 519,
+   "image": "https://cdn.dsmcdn.com/ty585/product/media/images/20221103/9/206434549/612382475/2/2_org_zoom.jpg"
+  },
+  {
+   "category_code": "k:elbise",
+   "name": "Fransız Tül Elbise",
+   "description": "Fransız Tül Elbise",
+   "price": 750,
+   "stock": 146,
+   "rating": 4.6,
+   "sell_count": 139,
+   "image": "https://cdn.dsmcdn.com/ty102/product/media/images/20210414/15/80100395/163758971/1/1_org_zoom.jpg"
+  }
+ ]
+}

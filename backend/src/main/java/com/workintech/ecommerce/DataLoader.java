@@ -1,5 +1,7 @@
 package com.workintech.ecommerce;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.workintech.ecommerce.entity.Category;
 import com.workintech.ecommerce.entity.Product;
 import com.workintech.ecommerce.entity.ProductImage;
@@ -11,9 +13,16 @@ import com.workintech.ecommerce.repository.RoleRepository;
 import com.workintech.ecommerce.repository.UserRepository;
 import com.workintech.ecommerce.service.AuthService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+
 // uygulama ilk acildiginda veritabani bossa ornek verileri ekler
+// kategori ve urunler resources/seed-data.json dosyasindan okunur
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -34,7 +43,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) {
+    public void run(String... args) throws IOException {
         if (roleRepository.count() > 0) {
             return;
         }
@@ -49,48 +58,42 @@ public class DataLoader implements CommandLineRunner {
         saveUser("Store", "store@commerce.com", store);
         saveUser("Customer", "customer@commerce.com", customer);
 
-        // kategoriler: { kod, baslik, cinsiyet, puan }
-        String[][] categories = {
-                {"k:tisort", "Tişört", "k", "4.2"}, {"k:ayakkabi", "Ayakkabı", "k", "4.9"},
-                {"k:ceket", "Ceket", "k", "3.8"}, {"k:elbise", "Elbise", "k", "4.1"},
-                {"k:etek", "Etek", "k", "3.9"}, {"k:gomlek", "Gömlek", "k", "3.1"},
-                {"k:kazak", "Kazak", "k", "2.9"}, {"k:pantalon", "Pantalon", "k", "3.8"},
-                {"e:ayakkabi", "Ayakkabı", "e", "4.6"}, {"e:ceket", "Ceket", "e", "4.1"},
-                {"e:gomlek", "Gömlek", "e", "3.9"}, {"e:kazak", "Kazak", "e", "3.2"},
-                {"e:pantalon", "Pantalon", "e", "3.5"}, {"e:tisort", "Tişört", "e", "4.3"},
-        };
-        String[] colors = {"Siyah", "Beyaz", "Mavi", "Kırmızı", "Yeşil", "Gri", "Lacivert", "Bej"};
+        JsonNode seed;
+        try (InputStream input = new ClassPathResource("seed-data.json").getInputStream()) {
+            seed = new ObjectMapper().readTree(input);
+        }
 
-        for (String[] row : categories) {
+        // kategoriler (kod -> id eslesmesi urunler icin tutuluyor)
+        Map<String, Long> categoryIds = new HashMap<>();
+        for (JsonNode node : seed.get("categories")) {
             Category category = new Category();
-            category.setCode(row[0]);
-            category.setTitle(row[1]);
-            category.setGender(row[2]);
-            category.setRating(Double.parseDouble(row[3]));
-            category.setImg("https://picsum.photos/seed/category-" + row[0].replace(":", "-") + "/400/500");
+            category.setCode(node.get("code").asText());
+            category.setTitle(node.get("title").asText());
+            category.setGender(node.get("gender").asText());
+            category.setRating(node.get("rating").asDouble());
+            category.setImg(node.get("img").asText());
             category = categoryRepository.save(category);
+            categoryIds.put(category.getCode(), category.getId());
+        }
 
-            // her kategoriye 8 ornek urun
-            for (int i = 0; i < colors.length; i++) {
-                String gender = row[2].equals("k") ? "Kadın" : "Erkek";
-                Product product = new Product();
-                product.setName(colors[i] + " " + gender + " " + row[1]);
-                product.setDescription(colors[i] + " renk, rahat kalıp " + gender.toLowerCase() + " " + row[1].toLowerCase()
-                        + ". Günlük kullanıma uygun.");
-                product.setPrice(Math.round((99.99 + category.getId() * 20 + i * 15) * 100) / 100.0);
-                product.setStock(20 + i * 5);
-                product.setStoreId(1L);
-                product.setCategoryId(category.getId());
-                product.setRating(Math.round((3.0 + (i % 5) * 0.4) * 100) / 100.0);
-                product.setSellCount(50 + i * 37);
+        // urunler
+        for (JsonNode node : seed.get("products")) {
+            Product product = new Product();
+            product.setName(node.get("name").asText());
+            product.setDescription(node.get("description").asText());
+            product.setPrice(node.get("price").asDouble());
+            product.setStock(node.get("stock").asInt());
+            product.setStoreId(1L);
+            product.setCategoryId(categoryIds.get(node.get("category_code").asText()));
+            product.setRating(node.get("rating").asDouble());
+            product.setSellCount(node.get("sell_count").asInt());
 
-                ProductImage image = new ProductImage();
-                image.setUrl("https://picsum.photos/seed/product-" + category.getId() + "-" + i + "/600/800");
-                image.setIndex(0);
-                product.getImages().add(image);
+            ProductImage image = new ProductImage();
+            image.setUrl(node.get("image").asText());
+            image.setIndex(0);
+            product.getImages().add(image);
 
-                productRepository.save(product);
-            }
+            productRepository.save(product);
         }
     }
 

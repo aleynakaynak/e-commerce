@@ -1,3 +1,4 @@
+import { pageImages } from '../data/homeData'
 import { Phone, MapPin, Send } from 'lucide-react'
 import { InstagramIcon, FacebookIcon, TwitterIcon } from '../components/SocialIcons'
 
@@ -29,9 +30,9 @@ function ContactPage() {
           </div>
         </div>
         <img
-          src="https://picsum.photos/seed/bandage-contact/600/500"
+          src={pageImages.contact}
           alt=""
-          className="w-full lg:w-1/2 max-w-xl rounded-3xl"
+          className="w-full lg:w-1/2 max-w-md h-[500px] object-cover rounded-3xl"
         />
       </section>
 

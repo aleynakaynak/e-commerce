@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 import TeamCard from '../components/TeamCard'
 import { team } from '../data/teamData'
-
-const heroImages = ['bandage-t1', 'bandage-t2', 'bandage-t3', 'bandage-t4']
+import { pageImages } from '../data/homeData'
 
 function TeamPage() {
   return (
@@ -20,12 +19,12 @@ function TeamPage() {
 
       {/* görsel şeridi */}
       <section className="flex flex-col lg:flex-row gap-3">
-        <img src="https://picsum.photos/seed/bandage-team-big/700/530" alt="" className="w-full lg:w-1/2 h-[530px] object-cover" />
+        <img src={pageImages.teamBig} alt="" className="w-full lg:w-1/2 h-[530px] object-cover" />
         <div className="flex flex-wrap gap-3 lg:w-1/2">
-          {heroImages.map((name) => (
+          {pageImages.teamSmall.map((src) => (
             <img
-              key={name}
-              src={`https://picsum.photos/seed/${name}/360/260`}
+              key={src}
+              src={src}
               alt=""
               className="w-[calc(50%-6px)] h-[259px] object-cover"
             />

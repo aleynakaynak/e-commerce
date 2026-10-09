@@ -1,3 +1,4 @@
+import { pageImages } from '../data/homeData'
 import TeamCard from '../components/TeamCard'
 import { team } from '../data/teamData'
 
@@ -20,7 +21,7 @@ function AboutPage() {
           </p>
           <button className="bg-primary text-white text-sm font-bold px-10 py-4 rounded">Get Quote Now</button>
         </div>
-        <img src="https://picsum.photos/seed/bandage-about/600/500" alt="" className="w-full lg:w-1/2 max-w-xl rounded-3xl" />
+        <img src={pageImages.about} alt="" className="w-full lg:w-1/2 max-w-md h-[500px] object-cover rounded-3xl" />
       </section>
 
       <section className="flex flex-col lg:flex-row gap-8 px-8 lg:px-48 py-8 text-center lg:text-left">
@@ -47,7 +48,7 @@ function AboutPage() {
       </section>
 
       <section className="flex justify-center px-8 pb-20">
-        <img src="https://picsum.photos/seed/bandage-video/990/540" alt="" className="w-full max-w-5xl rounded-2xl" />
+        <img src={pageImages.video} alt="" className="w-full max-w-5xl h-[540px] object-cover rounded-2xl" />
       </section>
 
       <section className="flex flex-col items-center gap-12 px-8 py-12">
@@ -76,7 +77,7 @@ function AboutPage() {
           </p>
           <button className="border border-white text-sm font-bold px-10 py-4 rounded">Button</button>
         </div>
-        <img src="https://picsum.photos/seed/bandage-work/600/640" alt="" className="hidden lg:block lg:w-2/5 object-cover" />
+        <img src={pageImages.work} alt="" className="hidden lg:block lg:w-2/5 object-cover" />
       </section>
     </div>
   )
