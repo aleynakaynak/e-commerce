@@ -23,11 +23,9 @@ function HomePage() {
 
   const imageOf = (index) => products[index]?.images[0]?.url
 
-  // editor's pick için ürünü olan kategoriler (puana göre)
-  const picks = [...categories]
-    .filter((c) => c.gender === 'k')
-    .sort((a, b) => b.rating - a.rating)
-    .slice(0, 4)
+  // editor's pick: API'de ürünü olan 4 kategori
+  const pickCodes = ['k:elbise', 'k:ayakkabi', 'k:tisort', 'k:ceket']
+  const picks = pickCodes.map((code) => categories.find((c) => c.code === code)).filter(Boolean)
 
   return (
     <div className="flex flex-col">
